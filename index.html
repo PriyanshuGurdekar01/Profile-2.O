@@ -1,0 +1,3011 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!--
+  ============================================================================
+  PRIYANSHU GURDEKAR — personal site
+  Single file: HTML + CSS + vanilla JS. No build step, no dependencies except
+  Google Fonts.
+
+  HOW TO EDIT
+  1. Everything personal lives in the CONFIG object at the top of the <script>
+     near the bottom of this file: name, monogram, tagline, year, email,
+     social links, résumé path, the projects, awards and skills lists.
+  2. Colours / type: edit the tokens in :root (top of the <style> block).
+     --accent is the one accent colour. Dark mode tokens are defined twice:
+     once for prefers-color-scheme and once for the manual [data-theme] toggle.
+  3. Images: currently picsum.photos placeholders. Replace the `poster` fields
+     in CONFIG.projects and the hero <img> srcset with your own files
+     (recommended: 480 / 960 / 1440px wide .webp in the same folder).
+  4. Résumé: drop your PDF next to this file and set CONFIG.resume to its path.
+  5. Contact form: with CONFIG.form.endpoint empty it falls back to opening the
+     visitor's mail app. Paste a Formspree/Netlify/Worker URL into `endpoint`
+     to POST the form as JSON instead.
+  6. Head tags (title, description, canonical, og:image) need your real domain
+     once the site is deployed.
+  ============================================================================
+-->
+
+<title>Priyanshu Gurdekar — Web Developer &amp; Hardware Innovator</title>
+<meta name="description" content="Priyanshu Gurdekar is a Computer Science and Technology student at MITS Gwalior building web applications, computer-vision experiments and Arduino-based IoT systems.">
+<meta name="author" content="Priyanshu Gurdekar">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#f5f5f1">
+<link rel="canonical" href="https://priyanshugurdekar.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Priyanshu Gurdekar">
+<meta property="og:title" content="Priyanshu Gurdekar — Web Developer &amp; Hardware Innovator">
+<meta property="og:description" content="Computer Science &amp; Technology student at MITS Gwalior. Web development, computer vision, and Arduino-based hardware.">
+<meta property="og:url" content="https://priyanshugurdekar.com/">
+<meta property="og:image" content="https://priyanshugurdekar.com/portrait-960.jpg">
+<meta property="og:image:alt" content="Priyanshu Gurdekar">
+<meta property="og:image:width" content="960">
+<meta property="og:image:height" content="1280">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Priyanshu Gurdekar — Web Developer &amp; Hardware Innovator">
+<meta name="twitter:description" content="Computer Science &amp; Technology student at MITS Gwalior. Web development, computer vision, and Arduino-based hardware.">
+<meta name="twitter:image" content="https://priyanshugurdekar.com/portrait-960.jpg">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="P. Gurdekar">
+<meta name="format-detection" content="telephone=no">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23111'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%23f5f5f1' text-anchor='middle'%3EPG%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23111'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%23f5f5f1' text-anchor='middle'%3EPG%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Priyanshu Gurdekar",
+  "jobTitle": "Web Developer",
+  "description": "Computer Science and Technology student at Madhav Institute of Technology and Science, Gwalior, working across web development, computer vision and Arduino-based IoT hardware.",
+  "url": "https://priyanshugurdekar.com/",
+  "email": "mailto:priyanshugurdekar223@gmail.com",
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Madhav Institute of Technology and Science (MITS), Gwalior"
+  },
+  "knowsAbout": ["Web Development", "Next.js", "JavaScript", "Python", "C++", "Arduino", "IoT", "Computer Vision", "Power BI"],
+  "sameAs": [
+    "https://github.com/priyanshugurdekar",
+    "https://www.linkedin.com/in/priyanshugurdekar"
+  ]
+}
+</script>
+
+<script>document.documentElement.classList.add('js');</script>
+
+<style>
+/* ==========================================================================
+   1. TOKENS
+   ========================================================================== */
+
+:root {
+  /* colour — one accent only: ink blue */
+  --bg: #f5f5f1;
+  --bg-elev: #ededE6;
+  --ink: #111111;
+  --muted: #65655e;
+  --line: rgba(17, 17, 17, .14);
+  --line-strong: rgba(17, 17, 17, .32);
+  --accent: #2f3bd6;
+  --accent-soft: rgba(47, 59, 214, .1);
+  --on-accent: #ffffff;
+
+  /* type */
+  --font-display: "Instrument Serif", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* motion */
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  --ease-wipe: cubic-bezier(.76, 0, .24, 1);
+
+  /* metrics */
+  --pad: clamp(20px, 4vw, 56px);
+  --maxw: 1600px;
+  --topbar-h: 66px;
+  --bottomnav-h: 62px;
+
+  color-scheme: light;
+}
+
+/* dark tokens — system preference */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e0e0d;
+    --bg-elev: #171715;
+    --ink: #f2f1ec;
+    --muted: #9c9b92;
+    --line: rgba(242, 241, 236, .16);
+    --line-strong: rgba(242, 241, 236, .34);
+    --accent: #8f97ff;
+    --accent-soft: rgba(143, 151, 255, .14);
+    --on-accent: #0e0e0d;
+    color-scheme: dark;
+  }
+}
+
+/* dark tokens — manual toggle wins over system */
+:root[data-theme="dark"] {
+  --bg: #0e0e0d;
+  --bg-elev: #171715;
+  --ink: #f2f1ec;
+  --muted: #9c9b92;
+  --line: rgba(242, 241, 236, .16);
+  --line-strong: rgba(242, 241, 236, .34);
+  --accent: #8f97ff;
+  --accent-soft: rgba(143, 151, 255, .14);
+  --on-accent: #0e0e0d;
+  color-scheme: dark;
+}
+
+/* ==========================================================================
+   2. RESET + BASE
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: background-color .5s var(--ease), color .5s var(--ease);
+}
+
+body.is-locked { overflow: hidden; }
+
+img, svg { display: block; max-width: 100%; }
+img { height: auto; }
+
+a { color: inherit; text-decoration: none; }
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+h1, h2, h3, h4, p, figure, blockquote, ul, ol { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+
+time { font-variant-numeric: tabular-nums; }
+
+::selection { background: var(--accent); color: var(--on-accent); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: fixed;
+  top: 10px; left: 10px;
+  z-index: 200;
+  padding: 10px 16px;
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .06em;
+  transform: translateY(-160%);
+  transition: transform .3s var(--ease);
+}
+.skip-link:focus-visible { transform: translateY(0); outline-offset: 2px; }
+
+/* micro label */
+.label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   3. ATMOSPHERE — grain, drifting glow
+   ========================================================================== */
+
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: .045;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+:root[data-theme="dark"] .grain { mix-blend-mode: screen; opacity: .05; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .grain { mix-blend-mode: screen; opacity: .05; }
+}
+
+.bg-glow {
+  position: fixed;
+  inset: -25%;
+  z-index: 0;
+  pointer-events: none;
+  transform: translate3d(calc(var(--gx, 0) * 16px), calc(var(--gy, 0) * 16px), 0);
+  transition: transform 1.4s cubic-bezier(.16, 1, .3, 1);
+}
+.bg-glow__inner {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(42% 38% at 26% 26%, rgba(47, 59, 214, .10), transparent 68%),
+    radial-gradient(36% 34% at 76% 70%, rgba(190, 96, 60, .07), transparent 70%);
+  animation: drift 34s ease-in-out infinite alternate;
+}
+:root[data-theme="dark"] .bg-glow__inner {
+  background:
+    radial-gradient(42% 38% at 26% 26%, rgba(143, 151, 255, .12), transparent 68%),
+    radial-gradient(36% 34% at 76% 70%, rgba(190, 96, 60, .09), transparent 70%);
+}
+@keyframes drift {
+  0%   { transform: translate3d(-2%, -1%, 0) scale(1); }
+  50%  { transform: translate3d(2%, 2%, 0) scale(1.06); }
+  100% { transform: translate3d(-1%, 3%, 0) scale(1.02); }
+}
+
+/* ==========================================================================
+   4. CUSTOM CURSOR
+   ========================================================================== */
+
+.cursor { display: none; }
+
+@media (hover: hover) and (pointer: fine) {
+  .cursor { display: block; }
+  .cursor__dot,
+  .cursor__ring {
+    position: fixed;
+    top: 0; left: 0;
+    z-index: 96;
+    pointer-events: none;
+    border-radius: 50%;
+    will-change: transform;
+  }
+  .cursor__dot {
+    width: 5px; height: 5px;
+    background: var(--ink);
+    transform: translate3d(-50%, -50%, 0);
+  }
+  .cursor__ring {
+    display: grid;
+    place-items: center;
+    width: 34px; height: 34px;
+    border: 1px solid var(--line-strong);
+    transition: width .35s var(--ease), height .35s var(--ease),
+                background-color .35s var(--ease), border-color .35s var(--ease),
+                opacity .25s linear;
+  }
+  .cursor__label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--on-accent);
+    opacity: 0;
+    transform: scale(.8);
+    transition: opacity .25s var(--ease), transform .25s var(--ease);
+  }
+  .cursor.is-engaged .cursor__ring {
+    width: 76px; height: 76px;
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .cursor.is-engaged .cursor__label { opacity: 1; transform: scale(1); }
+  .cursor.is-hidden .cursor__dot,
+  .cursor.is-hidden .cursor__ring { opacity: 0; }
+}
+
+/* ==========================================================================
+   5. PRELOADER + ROUTE CURTAIN
+   ========================================================================== */
+
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 110;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  transition: transform .7s var(--ease-wipe);
+}
+.preloader.is-done { transform: translateY(-101%); pointer-events: none; }
+.preloader[hidden] { display: none; }
+.preloader__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+.preloader__mark {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 7vw, 4.4rem);
+  letter-spacing: -.02em;
+  line-height: 1;
+  opacity: 0;
+  animation: pl-in .9s var(--ease) .05s forwards;
+}
+.preloader__count {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .16em;
+  color: var(--muted);
+  opacity: 0;
+  animation: pl-in .9s var(--ease) .2s forwards;
+}
+.preloader__pct { margin-left: 2px; }
+@keyframes pl-in { to { opacity: 1; } }
+
+html:not(.js) .preloader { display: none; }
+
+.curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 105;
+  pointer-events: none;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  transform: translateY(100%);
+  transition: transform .6s var(--ease-wipe);
+}
+.curtain[data-state="in"]  { transform: translateY(0); pointer-events: auto; }
+.curtain[data-state="out"] { transform: translateY(-100%); }
+.curtain[data-state="reset"] { transform: translateY(100%); transition: none; }
+
+/* ==========================================================================
+   6. TOP BAR
+   ========================================================================== */
+
+.topbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px var(--pad);
+  background: var(--bg);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  -webkit-backdrop-filter: saturate(140%) blur(9px);
+  backdrop-filter: saturate(140%) blur(9px);
+  border-bottom: 1px solid var(--line);
+}
+
+.topbar__mono {
+  font-family: var(--font-display);
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: -.02em;
+  padding-right: 6px;
+}
+.topbar__mono sup {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: .1em;
+  vertical-align: super;
+  color: var(--muted);
+}
+
+.topbar__tagline { display: none; }
+
+.topbar__right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topbar__clock {
+  display: none;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.topbar__clock .tz { color: var(--accent); }
+
+.topbar__year {
+  display: none;
+  padding-left: 12px;
+  border-left: 1px solid var(--line);
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   7. BUTTONS + LINK PRIMITIVES
+   ========================================================================== */
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 18px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  line-height: 1;
+  border: 1px solid var(--line-strong);
+  border-radius: 2px;
+  color: var(--ink);
+  background: transparent;
+  transition: color .35s var(--ease), border-color .35s var(--ease),
+              background-color .35s var(--ease);
+  will-change: transform;
+}
+.btn:hover, .btn:focus-visible {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+.btn--solid {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+.btn--solid:hover, .btn--solid:focus-visible {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+.btn__arrow { transition: transform .4s var(--ease); }
+.btn:hover .btn__arrow { transform: translate(2px, -2px); }
+
+.icon-btn {
+  display: grid;
+  place-items: center;
+  width: 36px; height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--ink);
+  transition: border-color .3s var(--ease), color .3s var(--ease), transform .3s var(--ease);
+}
+.icon-btn:hover { border-color: var(--ink); transform: rotate(-12deg); }
+.icon-btn svg { width: 15px; height: 15px; }
+.icon-btn .moon { display: block; }
+.icon-btn .sun { display: none; }
+:root[data-theme="dark"] .icon-btn .moon { display: none; }
+:root[data-theme="dark"] .icon-btn .sun { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .icon-btn .moon { display: none; }
+  :root:not([data-theme="light"]) .icon-btn .sun { display: block; }
+}
+
+/* underline that draws left → right */
+.u-link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+}
+.u-link::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .5s var(--ease);
+}
+.u-link:hover::after,
+.u-link:focus-visible::after { transform: scaleX(1); }
+
+/* ==========================================================================
+   8. HERO  (mobile-first: portrait on top, name below, 18vw)
+   ========================================================================== */
+
+.hero {
+  /* no z-index here: a stacking context would isolate the name's blend mode */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-height: 100svh;
+  padding: calc(var(--topbar-h) + 14px) var(--pad) calc(var(--bottomnav-h) + 22px);
+}
+
+.hero__stage {
+  display: grid;
+  gap: 20px;
+  flex: 1;
+  align-content: start;
+}
+
+.hero__portrait {
+  position: relative;
+  order: 1;
+  width: min(50%, 196px);
+  margin: 0;
+  justify-self: end;
+}
+.hero__portrait img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: var(--bg-elev);
+  filter: grayscale(1) contrast(1.02);
+  transition: filter .8s var(--ease), transform .8s var(--ease);
+}
+.hero__portrait::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--line);
+  pointer-events: none;
+}
+.hero__portrait:hover img,
+.hero__portrait:focus-within img {
+  filter: grayscale(0) contrast(1);
+  transform: scale(1.03);
+}
+.hero__portrait figcaption { display: none; }
+
+.hero__name {
+  order: 2;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.9rem, 17vw, 14rem);
+  line-height: .84;
+  letter-spacing: -.035em;
+  margin: 0;
+  color: #f5f5f1;
+  mix-blend-mode: difference;
+}
+.hero__name .line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: .06em;
+  margin-bottom: -.06em;
+}
+.hero__name .char {
+  display: inline-block;
+  will-change: transform;
+}
+.hero__name .word { display: inline-block; white-space: nowrap; }
+
+/* dark mode: difference would kill the type, so opt out */
+:root[data-theme="dark"] .hero__name { color: var(--ink); mix-blend-mode: normal; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .hero__name { color: var(--ink); mix-blend-mode: normal; }
+}
+
+/* masked reveal — only when JS is running and motion is allowed */
+.js .hero__name .char { transform: translateY(112%); }
+.js .hero__name.is-in .char {
+  transform: translateY(0);
+  transition: transform .9s var(--ease);
+  transition-delay: calc(var(--i, 0) * 40ms);
+}
+
+.hero__cta {
+  order: 3;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 18px;
+}
+/* flat note under the hero buttons */
+.hero__cta-note {
+  flex-basis: 100%;
+  max-width: 34ch;
+  margin-top: 2px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+/* hero footer: nav left, socials right (mobile: socials in 2 columns) */
+.hero__foot {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.hero__nav { display: none; }
+
+.socials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px 20px;
+}
+.socials__item { display: block; }
+.socials__link {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  width: 100%;
+  padding: 9px 0;
+  font-size: 14px;
+  line-height: 1.2;
+  text-align: left;
+  color: var(--ink);
+  transition: transform .45s var(--ease), color .3s var(--ease);
+  will-change: transform;
+}
+.socials__num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .1em;
+  color: var(--muted);
+  transition: color .3s var(--ease);
+}
+.socials__text {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 3px;
+}
+.socials__text::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .5s var(--ease);
+}
+.socials__arrow {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--muted);
+  transition: transform .45s var(--ease), color .3s var(--ease);
+}
+.socials__link:hover { transform: translateX(8px); }
+.socials__link:hover .socials__text::after { transform: scaleX(1); }
+.socials__link:hover .socials__arrow { transform: rotate(45deg); color: var(--accent); }
+.socials__link:hover .socials__num { color: var(--accent); }
+
+/* instrument strip */
+.instrument {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 22px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.instrument__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.instrument__dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #2f9e63;
+  box-shadow: 0 0 0 3px rgba(47, 158, 99, .16);
+}
+/* ==========================================================================
+   9. PAGE SHELL (sub-pages)
+   ========================================================================== */
+
+.site-main {
+  position: relative;
+  min-height: 60svh;
+  padding-top: var(--topbar-h);
+}
+
+.site-main:focus { outline: none; }
+
+.page {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(34px, 6vw, 72px) var(--pad) clamp(56px, 8vw, 96px);
+}
+
+.page__head {
+  display: grid;
+  gap: 14px;
+  padding-bottom: clamp(22px, 4vw, 40px);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: clamp(34px, 5vw, 64px);
+}
+.page__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 9vw, 6.2rem);
+  line-height: .92;
+  letter-spacing: -.03em;
+}
+.page__lede {
+  max-width: 46ch;
+  font-size: clamp(15px, 1.5vw, 17px);
+  color: var(--muted);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.eyebrow::before {
+  content: "";
+  width: 26px; height: 1px;
+  background: var(--accent);
+}
+
+.block { margin-bottom: clamp(46px, 7vw, 88px); }
+.block:last-child { margin-bottom: 0; }
+.block__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+  line-height: 1.05;
+  letter-spacing: -.015em;
+  margin-bottom: 18px;
+}
+
+.prose {
+  display: grid;
+  gap: 16px;
+  max-width: 62ch;
+  font-size: clamp(15px, 1.4vw, 17px);
+  line-height: 1.68;
+  color: var(--ink);
+}
+.prose p { color: var(--ink); }
+.prose--muted { color: var(--muted); }
+
+.split {
+  display: grid;
+  gap: clamp(26px, 4vw, 56px);
+}
+
+/* ==========================================================================
+   10. ABOUT
+   ========================================================================== */
+
+.pullquote {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: clamp(24px, 4vw, 44px) 0;
+  margin-bottom: clamp(34px, 5vw, 56px);
+}
+.pullquote blockquote {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 5vw, 3.6rem);
+  line-height: 1.04;
+  letter-spacing: -.02em;
+  max-width: 22ch;
+  text-wrap: balance;
+}
+.pullquote blockquote em {
+  font-style: italic;
+  color: var(--accent);
+}
+.pullquote figcaption {
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.summary {
+  padding: clamp(20px, 3vw, 30px);
+  background: var(--bg-elev);
+  border-left: 2px solid var(--accent);
+  max-width: 70ch;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+/* skills */
+.skills {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+.skills__row {
+  display: grid;
+  gap: 8px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+.skills__key {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.skills__val {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.chip {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 13px;
+  line-height: 1.3;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  transition: border-color .3s var(--ease), color .3s var(--ease), background-color .3s var(--ease);
+}
+.chip:hover { border-color: var(--accent); color: var(--accent); }
+
+/* timeline (experience & education) */
+.timeline {
+  display: grid;
+  gap: 28px;
+  border-left: 1px solid var(--line);
+  padding-left: clamp(16px, 3vw, 28px);
+}
+.timeline__item { position: relative; }
+.timeline__item::before {
+  content: "";
+  position: absolute;
+  left: calc(clamp(16px, 3vw, 28px) * -1 - 2.5px);
+  top: 8px;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.timeline__when {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.timeline__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  letter-spacing: -.01em;
+}
+.timeline__where { font-size: 14px; color: var(--muted); margin-top: 2px; }
+.timeline__body {
+  margin-top: 8px;
+  font-size: 14.5px;
+  line-height: 1.62;
+  color: var(--ink);
+  max-width: 56ch;
+}
+
+/* awards table */
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.awards {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+  min-width: 520px;
+}
+.awards caption {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-bottom: 12px;
+}
+.awards th {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0 14px 10px 0;
+  border-bottom: 1px solid var(--line-strong);
+}
+.awards td {
+  padding: 16px 14px 16px 0;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.awards th:first-child, .awards td:first-child {
+  width: 74px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+.awards tbody tr { transition: background-color .3s var(--ease); }
+.awards tbody tr:hover { background: var(--accent-soft); }
+.awards tbody tr:hover td:first-child { color: var(--accent); }
+.awards__work { color: var(--muted); }
+
+/* ==========================================================================
+   11. WORK
+   ========================================================================== */
+
+.work-grid {
+  display: grid;
+  gap: clamp(26px, 4vw, 44px);
+}
+
+.work-card {
+  position: relative;
+  perspective: 900px;
+  cursor: pointer;
+  touch-action: pan-y;
+}
+.work-card__inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform .5s var(--ease);
+  will-change: transform;
+}
+.work-card__media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+}
+.work-card__media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.03);
+  transition: filter .8s var(--ease), transform 1.1s var(--ease);
+  transform: scale(1.001);
+}
+.work-card:hover .work-card__media img {
+  filter: grayscale(0) contrast(1);
+  transform: scale(1.06);
+}
+.work-card__badge {
+  position: absolute;
+  left: 12px; bottom: 12px;
+  padding: 6px 10px;
+  background: var(--bg);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .4s var(--ease), transform .4s var(--ease);
+}
+.work-card:hover .work-card__badge,
+.work-card:focus-within .work-card__badge {
+  opacity: 1;
+  transform: translateY(0);
+}
+.work-card__body {
+  display: grid;
+  gap: 6px;
+  padding-top: 14px;
+}
+.work-card__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  line-height: 1.1;
+  letter-spacing: -.015em;
+}
+/* the trigger stretches over the whole card; the heading stays a heading */
+.work-card__trigger {
+  font: inherit;
+  display: inline;
+  color: inherit;
+  letter-spacing: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.work-card__trigger::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+.work-card__trigger:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.work-card__trigger svg {
+  width: .78em; height: .78em;
+  margin-left: .35em;
+  display: inline-block;
+  vertical-align: baseline;
+  transition: transform .4s var(--ease), color .3s var(--ease);
+}
+.work-card:hover .work-card__trigger svg { transform: translate(2px, -2px); color: var(--accent); }
+.work-card__meta {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.work-card__desc {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 44ch;
+}
+
+/* marquee */
+.marquee {
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 14px 0;
+  margin-top: clamp(44px, 7vw, 80px);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee 48s linear infinite;
+  will-change: transform;
+}
+.marquee:hover .marquee__track,
+.marquee:focus-within .marquee__track { animation-play-state: paused; }
+.marquee__group {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding-right: 28px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.marquee__group span { display: inline-flex; align-items: center; gap: 28px; }
+.marquee__group span::after {
+  content: "";
+  width: 4px; height: 4px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+@keyframes marquee { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
+
+/* ==========================================================================
+   12. CONTACT
+   ========================================================================== */
+
+.contact-grid {
+  display: grid;
+  gap: clamp(30px, 5vw, 64px);
+}
+
+.contact-list {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+.contact-list__row {
+  display: grid;
+  gap: 4px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+.contact-list__row dt {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.contact-list__row dd {
+  margin: 0;
+  font-size: 15px;
+  word-break: break-word;
+}
+
+.form { display: grid; gap: 16px; max-width: 560px; }
+.field { display: grid; gap: 7px; }
+.field__row { display: grid; gap: 16px; }
+.field label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font: inherit;
+  font-size: 15px;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  border-radius: 2px;
+  transition: border-color .3s var(--ease), background-color .3s var(--ease);
+}
+.field textarea { min-height: 140px; resize: vertical; line-height: 1.55; }
+.field input:hover, .field textarea:hover { border-color: var(--ink); }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); background: var(--accent-soft); }
+.field input:focus-visible, .field textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.field__error {
+  font-size: 12.5px;
+  color: #b3261e;
+  min-height: 0;
+}
+:root[data-theme="dark"] .field__error { color: #ff9d92; }
+.field input[aria-invalid="true"],
+.field textarea[aria-invalid="true"] { border-color: #b3261e; }
+
+.form__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 4px;
+}
+.form__note { font-size: 12.5px; color: var(--muted); max-width: 40ch; }
+.form__status {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ==========================================================================
+   13. DIALOGS (enquiry panel + project detail)
+   ========================================================================== */
+
+.dialog {
+  border: 0;
+  padding: 0;
+  margin: auto;
+  width: calc(100% - 24px);
+  max-width: 560px;
+  background: transparent;
+  color: var(--ink);
+}
+.dialog::backdrop {
+  background: rgba(17, 17, 17, .42);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+.dialog[open] { animation: none; }
+
+.panel {
+  position: relative;
+  background: var(--bg);
+  border: 1px solid var(--line-strong);
+  padding: clamp(24px, 4vw, 40px);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .45s var(--ease), transform .55s var(--ease);
+}
+.dialog.show .panel { opacity: 1; transform: none; }
+
+.panel__close {
+  position: absolute;
+  top: 12px; right: 12px;
+  display: grid;
+  place-items: center;
+  width: 34px; height: 34px;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--muted);
+  border: 1px solid transparent;
+  border-radius: 50%;
+  transition: color .25s var(--ease), border-color .25s var(--ease), transform .35s var(--ease);
+}
+.panel__close:hover { color: var(--ink); border-color: var(--line); transform: rotate(90deg); }
+
+.panel__kicker {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.panel__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 5vw, 2.6rem);
+  line-height: 1.02;
+  letter-spacing: -.02em;
+  margin-bottom: 10px;
+}
+.panel__text {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 42ch;
+  margin-bottom: 22px;
+}
+.panel__email {
+  display: block;
+  width: 100%;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  font-size: clamp(15px, 3.4vw, 19px);
+  letter-spacing: -.01em;
+  word-break: break-word;
+}
+.panel__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+.panel__meta {
+  margin-top: 18px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.sheet-handle {
+  display: none;
+  width: 42px; height: 4px;
+  margin: -8px auto 18px;
+  border-radius: 999px;
+  background: var(--line-strong);
+  cursor: grab;
+}
+
+/* project detail */
+.dialog--detail { max-width: 720px; }
+.detail__media {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  margin-bottom: 18px;
+}
+.detail__media img { width: 100%; height: 100%; object-fit: cover; }
+.detail__sub {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.detail__text { font-size: 15px; line-height: 1.65; color: var(--ink); }
+.detail__list {
+  display: grid;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding-left: 0;
+  list-style: none;
+}
+.detail__list li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+.detail__list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: .62em;
+  width: 6px; height: 1px;
+  background: var(--accent);
+}
+
+/* mobile: dialogs become bottom sheets */
+@media (max-width: 767px) {
+  .dialog {
+    width: 100%;
+    max-width: 100%;
+    margin: auto 0 0;
+  }
+  .panel {
+    border-radius: 16px 16px 0 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    padding-bottom: calc(26px + env(safe-area-inset-bottom));
+    transform: translateY(100%);
+  }
+  .sheet-handle { display: block; }
+  .dialog[open] .panel { transform: translateY(100%); }
+  .dialog[open].show .panel { transform: translateY(0); }
+}
+
+/* ==========================================================================
+   14. FOOTER + MOBILE BOTTOM NAV + SOUND
+   ========================================================================== */
+
+.footer {
+  position: relative;
+  z-index: 1;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 26px var(--pad) calc(var(--bottomnav-h) + 30px);
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 18px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.footer__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.footer__socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.footer__socials a {
+  display: grid;
+  place-items: center;
+  width: 36px; height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--ink);
+  transition: border-color .3s var(--ease), color .3s var(--ease), transform .35s var(--ease);
+}
+.footer__socials a:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.footer__socials svg { width: 15px; height: 15px; }
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 18px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color .3s var(--ease);
+}
+.to-top:hover { color: var(--ink); }
+.to-top svg { width: 11px; height: 11px; transition: transform .35s var(--ease); }
+.to-top:hover svg { transform: translateY(-3px); }
+
+.bottomnav {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 80;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0 var(--pad) env(safe-area-inset-bottom);
+  height: calc(var(--bottomnav-h) + env(safe-area-inset-bottom));
+  align-items: stretch;
+  background: var(--bg);
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--line);
+}
+.bottomnav a {
+  position: relative;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color .3s var(--ease);
+}
+.bottomnav a[aria-current="page"] { color: var(--ink); }
+.bottomnav a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  width: 14px; height: 1px;
+  margin-left: -7px;
+  background: var(--accent);
+}
+
+/* sound toggle */
+.sound {
+  position: fixed;
+  right: 14px;
+  bottom: calc(var(--bottomnav-h) + 14px);
+  z-index: 82;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--bg);
+  background: color-mix(in srgb, var(--bg) 86%, transparent);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color .3s var(--ease), border-color .3s var(--ease);
+}
+.sound:hover { color: var(--ink); border-color: var(--line-strong); }
+.sound.is-on { color: var(--ink); border-color: var(--line-strong); }
+.eq { display: inline-flex; align-items: flex-end; gap: 2px; height: 10px; }
+.eq i {
+  width: 2px;
+  height: 3px;
+  background: currentColor;
+  transition: height .2s linear;
+}
+.sound.is-on .eq i { background: var(--accent); animation: eq .9s ease-in-out infinite alternate; }
+.sound.is-on .eq i:nth-child(2) { animation-delay: -.3s; }
+.sound.is-on .eq i:nth-child(3) { animation-delay: -.6s; }
+.sound.is-on .eq i:nth-child(4) { animation-delay: -.15s; }
+@keyframes eq {
+  from { height: 2px; }
+  to   { height: 10px; }
+}
+
+/* ==========================================================================
+   15. SCROLL REVEAL
+   ========================================================================== */
+
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .8s var(--ease), transform .9s var(--ease);
+  transition-delay: calc(var(--d, 0) * 70ms);
+}
+.js [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ==========================================================================
+   16. BREAKPOINTS
+   ========================================================================== */
+
+@media (min-width: 600px) {
+  .field__row { grid-template-columns: 1fr 1fr; }
+  .work-grid { grid-template-columns: 1fr 1fr; }
+  .footer { padding-bottom: 30px; }
+  .sound { bottom: 16px; right: 16px; }
+}
+
+@media (min-width: 768px) {
+  :root { --topbar-h: 72px; }
+
+  .topbar__tagline { display: block; }
+  .topbar__clock { display: inline-block; }
+  .topbar__year { display: inline-block; }
+
+  .hero { gap: 30px; padding-bottom: 24px; }
+  .hero__stage {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+    align-content: center;
+    column-gap: 0;
+    position: relative;
+  }
+  .hero__portrait {
+    grid-column: 10 / 13;
+    grid-row: 1;
+    order: 0;
+    width: 100%;
+    max-width: none;
+    justify-self: stretch;
+    align-self: center;
+  }
+  .hero__portrait img { aspect-ratio: 3 / 4; }
+  .hero__name {
+    grid-column: 1 / 11;
+    grid-row: 1;
+    order: 0;
+    font-size: clamp(4rem, 16vw, 15rem);
+    line-height: .82;
+    min-width: 0;
+    padding-right: .03em;
+    position: relative;
+  }
+  .hero__cta {
+    order: 0;
+    grid-column: 1 / 9;
+    grid-row: 2;
+    margin-top: clamp(14px, 2.4vw, 30px);
+    align-self: start;
+  }
+  .hero__cta-note { max-width: 40ch; }
+
+  .hero__foot {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+    padding-top: 18px;
+  }
+  .hero__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: flex-start;
+  }
+  .hero__nav a {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hero__nav a::before {
+    content: "";
+    width: 0; height: 1px;
+    background: var(--accent);
+    transition: width .4s var(--ease);
+  }
+  .hero__nav a:hover::before,
+  .hero__nav a[aria-current="page"]::before { width: 18px; }
+  .socials { grid-template-columns: 1fr; gap: 0; min-width: 236px; }
+  .socials__link { padding: 6px 0; }
+
+  .instrument { padding-top: 12px; gap: 6px 20px; }
+
+  .bottomnav { display: none; }
+  .footer { padding-bottom: 30px; }
+
+  .page__head {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 20px 40px;
+  }
+  .page__lede { justify-self: end; text-align: right; }
+
+  .split--about { grid-template-columns: 1.15fr .85fr; }
+  .contact-grid { grid-template-columns: .9fr 1.1fr; }
+  .skills__row { grid-template-columns: 180px 1fr; align-items: baseline; gap: 20px; }
+
+  .sound { bottom: 20px; }
+}
+
+@media (min-width: 1100px) {
+  .hero { padding-bottom: 20px; }
+  .hero__name { font-size: clamp(8rem, 16vw, 15rem); }
+  .work-grid { gap: clamp(32px, 4vw, 56px); }
+  .page { padding-top: 64px; }
+}
+
+@media (max-width: 767px) {
+  .topbar__clock, .topbar__year, .topbar__tagline { display: none; }
+  .hero__cta-note { display: none; }
+  .hero { gap: 18px; }
+  .hero__stage { gap: 16px; }
+  .hero__cta { gap: 10px; }
+  .hero__cta .btn { padding: 10px 14px; }
+  .hero__foot { gap: 14px; padding-top: 14px; }
+  .socials { gap: 0 14px; }
+  .socials__link { padding: 7px 0; font-size: 13px; }
+  .instrument { gap: 6px 14px; }
+  .instrument__item:nth-child(3) { display: none; }
+  .page { padding-bottom: calc(var(--bottomnav-h) + 30px); }
+  .footer { padding-bottom: calc(var(--bottomnav-h) + 26px); }
+}
+
+/* ==========================================================================
+   17. REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .preloader { display: none; }
+  .js [data-reveal] { opacity: 1; transform: none; }
+  .js .hero__name .char { transform: none; }
+  .marquee__track { animation: none; }
+  .cursor { display: none; }
+}
+</style>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="bg-glow" aria-hidden="true"><div class="bg-glow__inner"></div></div>
+
+<div class="cursor" id="cursor" aria-hidden="true">
+  <div class="cursor__dot"></div>
+  <div class="cursor__ring"><span class="cursor__label"></span></div>
+</div>
+
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader__inner">
+    <div class="preloader__mark">PG</div>
+    <div class="preloader__count"><span data-pl-count>00</span><span class="preloader__pct">%</span></div>
+  </div>
+</div>
+
+<div class="curtain" id="curtain" data-state="" aria-hidden="true"></div>
+
+<header class="topbar">
+  <a class="topbar__mono" href="#/" aria-label="Priyanshu Gurdekar — home">PG<sup aria-hidden="true">®</sup></a>
+
+  <span class="topbar__tagline label">Web Developer &amp; Hardware Innovator</span>
+
+  <div class="topbar__right">
+    <a class="btn" href="#/contact" data-route="/contact" data-magnetic>Get in touch</a>
+    <time class="topbar__clock label" id="clock" datetime="">--:--:--<span class="tz"> IST</span></time>
+    <span class="topbar__year label">2026</span>
+    <button class="icon-btn" type="button" id="themeToggle" aria-label="Switch to dark theme" aria-pressed="false">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M20 14.4A8.4 8.4 0 0 1 9.6 4a8.4 8.4 0 1 0 10.4 10.4Z" stroke-linejoin="round"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.4v2.2M12 19.4v2.2M2.4 12h2.2M19.4 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4 17 7M7 17l-1.6 1.6" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main" class="site-main" tabindex="-1">
+  <div id="app"></div>
+</main>
+
+<footer class="footer">
+  <div class="footer__top">
+    <p>Priyanshu Gurdekar — B.Tech CST, MITS Gwalior</p>
+    <div class="footer__socials">
+      <a href="https://github.com/priyanshugurdekar" target="_blank" rel="noopener" aria-label="GitHub (opens in a new tab)">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.5 7.5 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/priyanshugurdekar" target="_blank" rel="noopener" aria-label="LinkedIn (opens in a new tab)">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.8h.06c.53-1 1.83-2.05 3.76-2.05C20.6 8.75 21 11 21 14.1V21h-4v-6.1c0-1.45-.03-3.32-2.02-3.32-2.02 0-2.33 1.58-2.33 3.21V21H9V9Z"/></svg>
+      </a>
+      <a href="mailto:priyanshugurdekar223@gmail.com" aria-label="Email Priyanshu Gurdekar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m3.6 6.4 8.4 6.2 8.4-6.2" stroke-linecap="round"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© <span id="footerYear">2026</span> Priyanshu Gurdekar. Hand-written HTML, CSS &amp; JS.</span>
+    <button class="to-top" type="button" data-to-top>
+      Back to top
+      <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M6 10V2M2.5 5.5 6 2l3.5 3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+</footer>
+
+<nav class="bottomnav" aria-label="Primary">
+  <a href="#/" data-route="/">Home</a>
+  <a href="#/work" data-route="/work">Work</a>
+  <a href="#/about" data-route="/about">About</a>
+  <a href="#/contact" data-route="/contact">Contact</a>
+</nav>
+
+<button class="sound" type="button" id="soundToggle" aria-pressed="false" aria-label="Turn ambient sound on">
+  <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+  <span id="soundLabel">Sound off</span>
+</button>
+
+<!-- ========== enquiry dialog ========== -->
+<dialog class="dialog dialog--enquiry" id="enquiry" aria-labelledby="enquiryTitle">
+  <div class="panel">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <button class="panel__close" type="button" data-close aria-label="Close dialog">×</button>
+    <p class="panel__kicker">Design + code — say hello</p>
+    <h2 class="panel__title" id="enquiryTitle">Let's build something.</h2>
+    <p class="panel__text">Internships, collaborations, or a second pair of hands on a hardware build. Replies usually within a day.</p>
+    <a class="panel__email u-link" data-email-link href="mailto:priyanshugurdekar223@gmail.com">priyanshugurdekar223@gmail.com</a>
+    <div class="panel__actions">
+      <a class="btn btn--solid" data-email-link href="mailto:priyanshugurdekar223@gmail.com">Write <span class="btn__arrow" aria-hidden="true">↗</span></a>
+      <button class="btn" type="button" data-copy-email>Copy</button>
+    </div>
+    <p class="panel__meta" data-copy-status role="status" aria-live="polite">MITS Gwalior · IST (UTC+5:30)</p>
+  </div>
+</dialog>
+
+<!-- ========== project detail dialog ========== -->
+<dialog class="dialog dialog--detail" id="detail" aria-labelledby="detailTitle">
+  <div class="panel">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <button class="panel__close" type="button" data-close aria-label="Close project">×</button>
+    <div id="detailBody"></div>
+  </div>
+</dialog>
+
+<div class="sr-only" id="live" role="status" aria-live="polite"></div>
+
+<script>
+/* ============================================================================
+   PRIYANSHU GURDEKAR — site script
+   Sections: config · data · helpers · theme · preloader · cursor · magnetic ·
+   tilt · clock · router · templates · dialogs · clipboard · form · audio ·
+   reveal · boot
+   ========================================================================== */
+
+(function () {
+  'use strict';
+
+  /* ------------------------------------------------------------------ config
+     Change everything about the person here. Nothing below this block needs
+     editing to update the site's content. --------------------------------- */
+
+  const CONFIG = {
+    name: 'Priyanshu Gurdekar',
+    firstName: 'Priyanshu',
+    lastName: 'Gurdekar',
+    monogram: 'PG',
+    tagline: 'Web Developer & Hardware Innovator',
+    year: 2026,
+    email: 'priyanshugurdekar223@gmail.com',
+
+    // Résumé: put your PDF in the same folder and change this path.
+    resume: "Priyanshu's CV.pdf",
+
+    // Leave `endpoint` empty to fall back to opening the visitor's mail app.
+    form: { endpoint: '' },
+
+    socials: [
+      { num: '01', label: 'GitHub', href: 'https://github.com/priyanshugurdekar', external: true },
+      { num: '02', label: 'LinkedIn', href: 'https://www.linkedin.com/in/priyanshugurdekar', external: true },
+      { num: '03', label: 'Email', href: 'mailto:priyanshugurdekar223@gmail.com', external: false }
+    ],
+
+    portrait: {
+      // Served from files next to index.html. To swap in a new photo, export
+      // 480 and 960 wide .webp files and update these two paths.
+      src: 'profile.jpg.jpeg',
+      srcset: 'profile.jpg.jpeg',
+      alt: 'Priyanshu Gurdekar in a black suit.',
+      width: 766,
+      height: 958,
+      position: '50% 20%'
+    },
+
+    location: 'MITS Gwalior · 26.2183° N, 78.1828° E',
+    status: 'Open to internships',
+    batch: 'Batch 2025–2029'
+  };
+
+  const TITLES = {
+    '/': 'Priyanshu Gurdekar — Web Developer & Hardware Innovator',
+    '/about': 'About — Priyanshu Gurdekar',
+    '/work': 'Work — Priyanshu Gurdekar',
+    '/contact': 'Contact — Priyanshu Gurdekar'
+  };
+
+  /* ---------------------------------------------------------------- content
+     Projects, awards, skills, experience. All plain data — the templates
+     below render whatever lives here. ------------------------------------- */
+
+  const PROJECTS = [
+    {
+      id: 'opticai',
+      title: 'OpticAI',
+      year: '2026',
+      role: 'Web application',
+      tags: 'Computer vision, JavaScript',
+      poster: 'OpticAI.jpeg',
+      detailImage: 'OpticAI.jpeg',
+      summary: 'A browser-based application that detects and labels objects in a live camera feed, without shipping frames to a server.',
+      detail: 'OpticAI runs an object-detection model over a live video stream and draws labelled bounding boxes on top of it in real time. The interesting constraint was latency: every millisecond spent in JavaScript is a frame the detector did not see, so the capture loop, the inference call and the canvas drawing had to share one animation frame cleanly.',
+      bullets: [
+        'Camera capture and canvas overlay driven by requestAnimationFrame',
+        'Model inference kept off the render path so the preview never stalls',
+        'Interface built around a single feed, no modal layers or menus'
+      ],
+      link: '',
+      linkLabel: ''
+    },
+    {
+      id: 'air-drawing',
+      title: 'Air Drawing Gesture Platform',
+      year: '2026',
+      role: 'Collaborative build',
+      tags: 'AI gesture tracking, Web',
+      poster: 'Air Drawing Gesture Platform.jpeg',
+      detailImage: 'Air Drawing Gesture Platform.jpeg',
+      summary: 'A collaborative AI application that turns hand gestures in front of a webcam into drawing strokes on screen.',
+      detail: 'Built as a team project, the platform tracks a hand through the camera and maps its movement to a canvas: one gesture lifts the pen, another puts it down, and the position between them becomes a stroke. Most of the work was in making that feel continuous rather than twitchy — smoothing the tracked path while still responding instantly.',
+      bullets: [
+        'Gesture recognition separated from the drawing surface so either could be tested alone',
+        'Path smoothing to keep strokes steady when the hand is not',
+        'Clear and undo actions that respect the session, not just the last stroke'
+      ],
+      link: '',
+      linkLabel: ''
+    },
+    {
+      id: 'jal-drishti',
+      title: 'Project Jal-Drishti',
+      year: '2026',
+      role: 'Disaster intelligence',
+      tags: 'SAR imagery, elevation models',
+      poster: 'Jal-Drishti.jpeg',
+      detailImage: 'Jal-Drishti.jpeg',
+      summary: 'A flood-monitoring system that combines synthetic aperture radar imagery with elevation data to find water where the camera cannot see it.',
+      detail: 'Jal-Drishti is about the problem of seeing floods through clouds and at night. Optical satellite images fail exactly when flooding matters most, so the system works from synthetic aperture radar instead, which passes through weather, and combines it with elevation models to work out not just where water is but where it is likely to flow and pool.',
+      bullets: [
+        'SAR backscatter analysis to separate open water from land',
+        'Elevation models used to reason about low-lying and drainage areas',
+        'Output oriented toward disaster-response decisions rather than imagery for its own sake'
+      ],
+      link: '',
+      linkLabel: ''
+    },
+    {
+      id: 'turret',
+      title: 'Automated Gun Turret System',
+      year: '2026',
+      role: 'Hardware prototype',
+      tags: 'Arduino Uno R3, HC-SR04, L298N',
+      poster: 'Automated Gun Turret System.jpeg',
+      detailImage: 'Automated Gun Turret System.jpeg',
+      summary: 'A sensor-driven aiming prototype built on an Arduino Uno R3. Ranked in the top three of the department and selected for the institute exhibition.',
+      detail: 'A hardware exercise in closing a control loop on cheap parts. An HC-SR04 ultrasonic sensor measures distance, the Arduino Uno R3 reads it and decides which way the mount should turn, and an L298N driver moves the motors. The hard part was never the wiring — it was filtering a noisy distance reading well enough that the mount settles instead of hunting.',
+      bullets: [
+        'Arduino Uno R3 with HC-SR04 ranging and L298N motor drive',
+        'Thresholding and averaging to reject unstable distance readings',
+        'Top three in departmental ranking, selected for the institute exhibition'
+      ],
+      link: '',
+      linkLabel: ''
+    }
+  ];
+
+  const AWARDS = [
+    { year: '2026', award: 'Top 3, departmental ranking · selected for institute exhibition', work: 'Automated Gun Turret System' },
+    { year: '2026', award: 'Qualified for round 2', work: 'Frontend Battle 2026, MITS Gwalior' },
+    { year: '2026', award: 'Participant', work: 'DevSprint 2026, GDG on Campus' },
+    { year: '2026', award: 'Participant', work: 'MindHive 2K26, ISTE MITS' },
+    { year: '2026', award: 'Participant', work: 'PixelPrompt AI Challenge' },
+    { year: '2026', award: 'Participant', work: 'Dash-It-Up 2.0, Power BI dashboard contest' }
+  ];
+
+  const SKILLS = [
+    { key: 'Web', items: ['HTML', 'CSS', 'JavaScript', 'Next.js'] },
+    { key: 'Languages', items: ['C', 'C++', 'Python'] },
+    { key: 'Hardware & IoT', items: ['Arduino Uno R3', 'HC-SR04', 'L298N motor drivers', 'Microcontrollers', 'Sensors'] },
+    { key: 'Tools', items: ['Git', 'GitHub', 'Power BI'] }
+  ];
+
+  const EXPERIENCE = [
+    {
+      when: '2026',
+      title: 'Event Coordinator, HackSynapse 2026',
+      where: 'MITS Gwalior',
+      body: 'Part of the organising team behind a 36-hour national-level hackathon: scheduling, participant communication and keeping the event running through the night.'
+    },
+    {
+      when: '2025 — present',
+      title: 'Community Coordinator, IEEE IAS & RAS chapters',
+      where: 'MITS Gwalior',
+      body: 'Handle event announcements and updates for the chapter, which mostly means writing clearly, publishing on time and keeping the calendar honest.'
+    }
+  ];
+
+  const MARQUEE = ['HTML', 'CSS', 'JavaScript', 'Next.js', 'C++', 'Python', 'Arduino Uno R3', 'HC-SR04', 'L298N', 'OpenCV', 'SAR imagery', 'Power BI', 'Git'];
+
+  /* ----------------------------------------------------------------- helpers */
+
+  const $  = (sel, root) => (root || document).querySelector(sel);
+  const $$ = (sel, root) => Array.prototype.slice.call((root || document).querySelectorAll(sel));
+  const app = $('#app');
+  const root = document.documentElement;
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const ext = 'target="_blank" rel="noopener noreferrer"';
+  const arrow = '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M2.5 9.5 9.5 2.5M4 2.5h5.5V8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  const announce = (msg) => { const el = $('#live'); if (el) el.textContent = msg; };
+
+  /* Storage can throw outright — sandboxed frames and locked-down browser
+     settings both raise a SecurityError on mere access. This shim falls back
+     to an in-memory store so the site always boots. ---------------------- */
+  const storage = (function () {
+    function make(kind) {
+      let real = null;
+      const mem = Object.create(null);
+      try {
+        real = window[kind];
+        real.setItem('__probe__', '1');
+        real.removeItem('__probe__');
+      } catch (err) {
+        real = null;
+      }
+      return {
+        get(key) {
+          try { return real ? real.getItem(key) : (key in mem ? mem[key] : null); }
+          catch (err) { return key in mem ? mem[key] : null; }
+        },
+        set(key, value) {
+          mem[key] = String(value);
+          try { if (real) real.setItem(key, value); } catch (err) { /* ignore */ }
+        }
+      };
+    }
+    return { local: make('localStorage'), session: make('sessionStorage') };
+  })();
+
+  function onMediaChange(mq, fn) {
+    if (!mq) return;
+    if (typeof mq.addEventListener === 'function') mq.addEventListener('change', fn);
+    else if (typeof mq.addListener === 'function') mq.addListener(fn);
+  }
+
+  /* ------------------------------------------------------------------- theme */
+
+  const themeToggle = $('#themeToggle');
+  const storedTheme = storage.local.get('pg-theme');
+  if (storedTheme === 'dark' || storedTheme === 'light') root.setAttribute('data-theme', storedTheme);
+
+  function syncThemeButton() {
+    const isDark = root.getAttribute('data-theme') === 'dark' ||
+      (!root.hasAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    themeToggle.setAttribute('aria-pressed', String(isDark));
+    themeToggle.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', isDark ? '#0e0e0d' : '#f5f5f1');
+  }
+  syncThemeButton();
+
+  themeToggle.addEventListener('click', () => {
+    const isDark = root.getAttribute('data-theme') === 'dark' ||
+      (!root.hasAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    const next = isDark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    storage.local.set('pg-theme', next);
+    syncThemeButton();
+  });
+
+  onMediaChange(window.matchMedia('(prefers-color-scheme: dark)'), () => {
+    if (!root.hasAttribute('data-theme')) syncThemeButton();
+  });
+
+  /* --------------------------------------------------------------- preloader */
+
+  const preloader = $('#preloader');
+  const plCount = $('[data-pl-count]');
+
+  function runPreloader(done) {
+    const visited = storage.session.get('pg-visited') === '1';
+    if (visited || reduced.matches || !plCount) {
+      preloader.hidden = true;
+      done();
+      return;
+    }
+    let value = 0;
+    const start = performance.now();
+    const duration = 1150;
+
+    function tick(now) {
+      const t = Math.min(1, (now - start) / duration);
+      value = Math.round(t * 100);
+      plCount.textContent = String(value).padStart(2, '0');
+      if (t < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        storage.session.set('pg-visited', '1');
+        setTimeout(() => {
+          preloader.classList.add('is-done');
+          done();
+          setTimeout(() => { preloader.hidden = true; }, 760);
+        }, 120);
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+
+  /* ------------------------------------------------------------------ cursor */
+
+  const cursor = $('#cursor');
+
+  function initCursor() {
+    if (!cursor || !finePointer.matches || reduced.matches) return;
+
+    const dot = $('.cursor__dot', cursor);
+    const ring = $('.cursor__ring', cursor);
+    const label = $('.cursor__label', cursor);
+    let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+    let rx = mx, ry = my, visible = false;
+
+    window.addEventListener('mousemove', (e) => {
+      mx = e.clientX; my = e.clientY;
+      if (!visible) { visible = true; cursor.classList.remove('is-hidden'); }
+      dot.style.transform = 'translate3d(' + (mx - 2.5) + 'px,' + (my - 2.5) + 'px,0)';
+    }, { passive: true });
+
+    document.addEventListener('mouseleave', () => cursor.classList.add('is-hidden'));
+    document.addEventListener('mouseenter', () => cursor.classList.remove('is-hidden'));
+
+    function loop() {
+      rx += (mx - rx) * 0.18;
+      ry += (my - ry) * 0.18;
+      const size = ring.offsetWidth / 2;
+      ring.style.transform = 'translate3d(' + (rx - size) + 'px,' + (ry - size) + 'px,0)';
+      requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
+
+    const setEngaged = (on, text) => {
+      cursor.classList.toggle('is-engaged', on);
+      label.textContent = on ? text : '';
+    };
+
+    document.addEventListener('mouseover', (e) => {
+      const target = e.target.closest('a, button, [data-cursor]');
+      if (!target) return;
+      const explicit = target.getAttribute('data-cursor');
+      if (explicit) { setEngaged(true, explicit); return; }
+      const isExternal = target.tagName === 'A' && target.target === '_blank';
+      setEngaged(true, isExternal ? 'Open' : 'View');
+    });
+
+    document.addEventListener('mouseout', (e) => {
+      const target = e.target.closest('a, button, [data-cursor]');
+      if (!target) return;
+      const to = e.relatedTarget;
+      if (to && to.closest && to.closest('a, button, [data-cursor]') === target) return;
+      setEngaged(false, '');
+    });
+  }
+
+  /* ---------------------------------------------------------------- magnetic */
+
+  function initMagnetic(scope) {
+    if (!finePointer.matches || reduced.matches) return;
+    $$('[data-magnetic]', scope).forEach((el) => {
+      const strength = 0.28;
+      const limit = 80;
+
+      el.addEventListener('mousemove', (e) => {
+        const r = el.getBoundingClientRect();
+        const cx = r.left + r.width / 2;
+        const cy = r.top + r.height / 2;
+        const dx = e.clientX - cx;
+        const dy = e.clientY - cy;
+        const dist = Math.hypot(dx, dy);
+        const pull = Math.max(0, 1 - dist / (Math.max(r.width, r.height) / 2 + limit));
+        el.style.transform = 'translate3d(' + (dx * strength * pull).toFixed(2) + 'px,' + (dy * strength * pull).toFixed(2) + 'px,0)';
+      });
+
+      el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+    });
+  }
+
+  /* -------------------------------------------------------------------- tilt */
+
+  function initTilt(scope) {
+    if (!finePointer.matches || reduced.matches) return;
+    $$('[data-tilt]', scope).forEach((card) => {
+      const inner = $('.work-card__inner', card);
+      if (!inner) return;
+
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        inner.style.transform = 'rotateX(' + (-py * 7).toFixed(2) + 'deg) rotateY(' + (px * 9).toFixed(2) + 'deg) translateZ(0)';
+        inner.style.transition = 'transform .1s linear';
+      });
+
+      card.addEventListener('mouseleave', () => {
+        inner.style.transition = 'transform .6s cubic-bezier(.22,1,.36,1)';
+        inner.style.transform = '';
+      });
+    });
+  }
+
+  /* ------------------------------------------------------------------- clock */
+
+  const clockEl = $('#clock');
+  const ist = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Asia/Kolkata', hour12: false,
+    hour: '2-digit', minute: '2-digit', second: '2-digit'
+  });
+
+  function updateClock() {
+    if (!clockEl) return;
+    const now = new Date();
+    clockEl.textContent = '';
+    clockEl.appendChild(document.createTextNode(ist.format(now)));
+    const tz = document.createElement('span');
+    tz.className = 'tz';
+    tz.textContent = ' IST';
+    clockEl.appendChild(tz);
+    clockEl.setAttribute('datetime', now.toISOString());
+  }
+  updateClock();
+  setInterval(() => { if (!document.hidden) updateClock(); }, 1000);
+
+  /* ------------------------------------------------------------------ router */
+
+  const curtain = $('#curtain');
+  const ROUTES = ['/', '/about', '/work', '/contact'];
+  let currentRoute = null;
+  let firstPaint = true;
+
+  function parseHash() {
+    const raw = window.location.hash.replace(/^#/, '');
+    if (!raw || raw === '/') return '/';
+    const clean = raw.replace(/\/+$/, '');
+    return clean.charAt(0) === '/' ? clean : '/' + clean;
+  }
+
+  function setActiveLinks(route) {
+    $$('[data-route]').forEach((a) => {
+      if (a.getAttribute('data-route') === route) a.setAttribute('aria-current', 'page');
+      else a.removeAttribute('aria-current');
+    });
+  }
+
+  function paint(route) {
+    const known = ROUTES.indexOf(route) !== -1;
+    const view = known ? route : '/404';
+
+    if (view === '/') app.innerHTML = tplHome();
+    else if (view === '/about') app.innerHTML = tplAbout();
+    else if (view === '/work') app.innerHTML = tplWork();
+    else if (view === '/contact') app.innerHTML = tplContact();
+    else app.innerHTML = tpl404(route);
+
+    document.title = known ? TITLES[route] : 'Page not found — Priyanshu Gurdekar';
+    setActiveLinks(known ? route : '/404');
+    afterPaint(view);
+    currentRoute = route;
+  }
+
+  function afterPaint(view) {
+    if (view === '/') {
+      splitHero();
+    }
+    initMagnetic(app);
+    initTilt(app);
+    observeReveal(app);
+    bindPageEvents(app);
+  }
+
+  function navigate(route) {
+    if (route === currentRoute) return;
+
+    if (reduced.matches || !currentRoute) {
+      paint(route);
+      window.scrollTo(0, 0);
+      return;
+    }
+
+    curtain.dataset.state = 'in';
+    window.setTimeout(() => {
+      paint(route);
+      window.scrollTo(0, 0);
+      curtain.dataset.state = 'out';
+      window.setTimeout(() => { curtain.dataset.state = 'reset'; }, 640);
+    }, 560);
+  }
+
+  function onHashChange() {
+    const route = parseHash();
+    if (route === currentRoute) return;
+    if (firstPaint) {
+      firstPaint = false;
+      paint(route);
+      return;
+    }
+    navigate(route);
+  }
+
+  /* --------------------------------------------------------------- templates */
+
+  function tplSocials() {
+    return CONFIG.socials.map((s) =>
+      '<li class="socials__item">' +
+        '<a class="socials__link" href="' + esc(s.href) + '"' + (s.external ? ' ' + ext : '') + ' data-magnetic>' +
+          '<span class="socials__num">' + esc(s.num) + '</span>' +
+          '<span class="socials__text">' + esc(s.label) + '</span>' +
+          '<span class="socials__arrow" aria-hidden="true">↗</span>' +
+          (s.external ? '<span class="sr-only">(opens in a new tab)</span>' : '') +
+        '</a>' +
+      '</li>'
+    ).join('');
+  }
+
+  function tplHome() {
+    const c = CONFIG;
+    return '' +
+    '<section class="hero" aria-labelledby="heroName">' +
+      '<div class="hero__stage">' +
+
+        '<figure class="hero__portrait" data-reveal>' +
+          '<img src="' + esc(c.portrait.src) + '" srcset="' + esc(c.portrait.srcset) + '" ' +
+            'sizes="(min-width: 768px) 25vw, 50vw" width="' + c.portrait.width + '" height="' + c.portrait.height + '" ' +
+            'style="object-position: ' + esc(c.portrait.position) + '" ' +
+            'alt="' + esc(c.portrait.alt) + '" loading="eager" fetchpriority="high" decoding="async">' +
+          '<figcaption>' + esc(c.name) + ', ' + esc(c.year) + '</figcaption>' +
+        '</figure>' +
+
+        '<h1 class="hero__name" id="heroName" aria-label="' + esc(c.name) + '">' +
+          '<span class="line" aria-hidden="true">' + esc(c.firstName) + '</span>' +
+          '<span class="line" aria-hidden="true">' + esc(c.lastName) + '</span>' +
+        '</h1>' +
+
+        '<div class="hero__cta">' +
+          '<a class="btn btn--solid" href="' + esc(c.resume) + '" download data-magnetic>' +
+            'Download résumé <span class="btn__arrow" aria-hidden="true">↓</span>' +
+          '</a>' +
+          '<a class="btn" href="#/work" data-route="/work" data-magnetic>View projects</a>' +
+          '<p class="hero__cta-note">Computer Science &amp; Technology student at MITS Gwalior, building across web and hardware.</p>' +
+        '</div>' +
+
+      '</div>' +
+
+      '<div class="hero__foot">' +
+        '<nav class="hero__nav" aria-label="Sections">' +
+          '<a href="#/work" data-route="/work">Work</a>' +
+          '<a href="#/about" data-route="/about">About</a>' +
+          '<a href="#/contact" data-route="/contact">Contact</a>' +
+        '</nav>' +
+
+        '<ul class="socials" aria-label="Elsewhere">' + tplSocials() +
+          '<li class="socials__item">' +
+            '<button class="socials__link" type="button" data-open-enquiry aria-haspopup="dialog" aria-expanded="false">' +
+              '<span class="socials__num">04</span>' +
+              '<span class="socials__text">Get in touch</span>' +
+              '<span class="socials__arrow" aria-hidden="true">↗</span>' +
+            '</button>' +
+          '</li>' +
+        '</ul>' +
+      '</div>' +
+
+      '<div class="instrument">' +
+        '<span class="instrument__item label"><span class="instrument__dot" aria-hidden="true"></span>' + esc(c.status) + '</span>' +
+        '<span class="instrument__item label">' + esc(c.location) + '</span>' +
+        '<span class="instrument__item label">' + esc(c.batch) + '</span>' +
+        '<span class="instrument__item label">Replies within a day</span>' +
+      '</div>' +
+    '</section>';
+  }
+
+  function tplPageHead(eyebrow, title, lede) {
+    return '<header class="page__head" data-reveal>' +
+      '<div>' +
+        '<p class="eyebrow">' + esc(eyebrow) + '</p>' +
+        '<h1 class="page__title">' + esc(title) + '</h1>' +
+      '</div>' +
+      '<p class="page__lede">' + lede + '</p>' +
+    '</header>';
+  }
+
+  function tplAbout() {
+    return '<article class="page">' +
+      tplPageHead('About', 'Priyanshu Gurdekar', 'Software that has to survive contact with the physical world.') +
+
+      '<div class="split split--about" style="margin-bottom: clamp(46px, 7vw, 88px)">' +
+        '<div class="prose" data-reveal>' +
+          '<p>I am Priyanshu Gurdekar, a B.Tech student in Computer Science and Technology at Madhav Institute of Technology and Science, Gwalior, set to graduate in 2029.</p>' +
+          '<p>My work mostly happens where web development meets hardware. On the software side that means HTML, CSS, JavaScript and Next.js, plus C, C++ and Python when a project needs to talk to a sensor, read an image or run on a microcontroller. On the hardware side it means Arduino Uno R3 boards, ultrasonic ranging, motor drivers and the wiring that connects them.</p>' +
+          '<p>I was drawn to that second half by the failures. Code either runs or it throws; a circuit can look perfectly correct and still not work, and you cannot step through it in a debugger. Building the automated turret prototype taught me more about noisy data than any dataset has, because the sensor disagreed with the world and I had to work out which one was right.</p>' +
+          '<p>Beyond coursework I coordinate things: HackSynapse 2026, the 36-hour national hackathon at MITS, and the announcement work for the IEEE IAS and RAS chapters. I also enter competitions to find out what I actually know — Frontend Battle 2026, DevSprint, MindHive, PixelPrompt and the Dash-It-Up Power BI contest.</p>' +
+        '</div>' +
+
+        '<div>' +
+          '<figure class="pullquote" data-reveal>' +
+            '<blockquote>“The interesting part is when the code stops being a screen and becomes <em>a thing that moves</em>.”</blockquote>' +
+            '<figcaption>On building hardware</figcaption>' +
+          '</figure>' +
+          '<div class="summary" data-reveal>' +
+            '<p>I am pursuing a B.Tech in Computer Science and Technology at MITS Gwalior, graduating in 2029. My foundation spans Next.js and modern web development, C, C++ and Python, and hands-on hardware prototyping with Arduino and IoT sensors. I have built an interactive Air Drawing Gesture Platform, real-time object detection with OpticAI, and an award-winning sensor-based turret system that placed in the top three of my department.</p>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+
+      '<section class="block" aria-labelledby="about-skills">' +
+        '<h2 class="block__title" id="about-skills" data-reveal>Technical skills</h2>' +
+        '<dl class="skills" data-reveal>' +
+          SKILLS.map((s) =>
+            '<div class="skills__row">' +
+              '<dt class="skills__key">' + esc(s.key) + '</dt>' +
+              '<dd class="skills__val">' + s.items.map((i) => '<span class="chip">' + esc(i) + '</span>').join('') + '</dd>' +
+            '</div>'
+          ).join('') +
+        '</dl>' +
+      '</section>' +
+
+      '<section class="block" aria-labelledby="about-exp">' +
+        '<h2 class="block__title" id="about-exp" data-reveal>Experience &amp; education</h2>' +
+        '<div class="split split--about">' +
+          '<div class="timeline" data-reveal>' +
+            EXPERIENCE.map((e) =>
+              '<article class="timeline__item">' +
+                '<p class="timeline__when">' + esc(e.when) + '</p>' +
+                '<h3 class="timeline__title">' + esc(e.title) + '</h3>' +
+                '<p class="timeline__where">' + esc(e.where) + '</p>' +
+                '<p class="timeline__body">' + esc(e.body) + '</p>' +
+              '</article>'
+            ).join('') +
+          '</div>' +
+          '<div class="timeline" data-reveal style="--d:1">' +
+            '<article class="timeline__item">' +
+              '<p class="timeline__when">2025 — 2029</p>' +
+              '<h3 class="timeline__title">B.Tech, Computer Science &amp; Technology</h3>' +
+              '<p class="timeline__where">Madhav Institute of Technology and Science, Gwalior</p>' +
+              '<p class="timeline__body">Coursework across programming, data structures, electronics and web systems, alongside department projects and hackathons.</p>' +
+            '</article>' +
+            '<article class="timeline__item">' +
+              '<p class="timeline__when">Ongoing</p>' +
+              '<h3 class="timeline__title">Self-directed hardware work</h3>' +
+              '<p class="timeline__where">Arduino, sensors, motor control</p>' +
+              '<p class="timeline__body">Prototyping circuits and control loops outside the syllabus, usually to answer a question a simulation could not.</p>' +
+            '</article>' +
+          '</div>' +
+        '</div>' +
+      '</section>' +
+
+      '<section class="block" aria-labelledby="about-awards">' +
+        '<h2 class="block__title" id="about-awards" data-reveal>Recognition</h2>' +
+        '<div class="table-wrap" data-reveal>' +
+          '<table class="awards">' +
+            '<caption>Competitions, rankings and selections</caption>' +
+            '<thead><tr><th scope="col">Year</th><th scope="col">Recognition</th><th scope="col">Project</th></tr></thead>' +
+            '<tbody>' +
+              AWARDS.map((a) =>
+                '<tr>' +
+                  '<td>' + esc(a.year) + '</td>' +
+                  '<td>' + esc(a.award) + '</td>' +
+                  '<td class="awards__work">' + esc(a.work) + '</td>' +
+                '</tr>'
+              ).join('') +
+            '</tbody>' +
+          '</table>' +
+        '</div>' +
+      '</section>' +
+
+      '<section class="block" aria-labelledby="about-next">' +
+        '<h2 class="block__title" id="about-next" data-reveal>Working together</h2>' +
+        '<p class="prose prose--muted" data-reveal style="margin-bottom:22px">Looking for an intern, a collaborator on a web build, or someone to help get a hardware prototype off the breadboard. Either way, the fastest way to reach me is email.</p>' +
+        '<div class="hero__cta" data-reveal>' +
+          '<a class="btn btn--solid" href="#/contact" data-route="/contact" data-magnetic>Contact <span class="btn__arrow" aria-hidden="true">→</span></a>' +
+          '<a class="btn" href="' + esc(CONFIG.resume) + '" download data-magnetic>Download résumé</a>' +
+        '</div>' +
+      '</section>' +
+    '</article>';
+  }
+
+  function tplWork() {
+    return '<article class="page">' +
+      tplPageHead('Selected work', 'Four builds, both sides of the stack', 'Web applications, computer vision and hardware prototypes. Open any card for the detail.') +
+
+      '<div class="work-grid">' +
+        PROJECTS.map((p) =>
+          '<article class="work-card" data-tilt data-reveal>' +
+            '<div class="work-card__inner">' +
+              '<div class="work-card__media">' +
+                '<img src="' + esc(p.poster) + '" width="960" height="1200" loading="lazy" decoding="async" ' +
+                  'alt="' + esc(p.title) + ' — project image">' +
+                '<span class="work-card__badge">Open detail</span>' +
+              '</div>' +
+              '<div class="work-card__body">' +
+                '<h2 class="work-card__title">' +
+                  '<button class="work-card__trigger" type="button" data-project="' + esc(p.id) + '" data-cursor="Open" aria-haspopup="dialog">' +
+                    esc(p.title) + arrow +
+                    '<span class="sr-only"> — open project detail</span>' +
+                  '</button>' +
+                '</h2>' +
+                '<p class="work-card__meta">' + esc(p.year) + ' — ' + esc(p.role) + '</p>' +
+                '<p class="work-card__desc">' + esc(p.summary) + '</p>' +
+              '</div>' +
+            '</div>' +
+          '</article>'
+        ).join('') +
+      '</div>' +
+
+      '<div class="marquee" aria-hidden="true">' +
+        '<div class="marquee__track">' +
+          '<div class="marquee__group">' + MARQUEE.map((m) => '<span>' + esc(m) + '</span>').join('') + '</div>' +
+          '<div class="marquee__group">' + MARQUEE.map((m) => '<span>' + esc(m) + '</span>').join('') + '</div>' +
+        '</div>' +
+      '</div>' +
+    '</article>';
+  }
+
+  function tplContact() {
+    return '<article class="page">' +
+      tplPageHead('Contact', 'Say hello', 'Internships, collaborations, or questions about a build. Email is the surest way to reach me.') +
+
+      '<div class="contact-grid">' +
+        '<div data-reveal>' +
+          '<dl class="contact-list">' +
+            '<div class="contact-list__row"><dt>Email</dt><dd><a class="u-link" href="mailto:' + esc(CONFIG.email) + '">' + esc(CONFIG.email) + '</a></dd></div>' +
+            '<div class="contact-list__row"><dt>GitHub</dt><dd><a class="u-link" href="https://github.com/priyanshugurdekar" ' + ext + '>github.com/priyanshugurdekar</a></dd></div>' +
+            '<div class="contact-list__row"><dt>LinkedIn</dt><dd><a class="u-link" href="https://www.linkedin.com/in/priyanshugurdekar" ' + ext + '>linkedin.com/in/priyanshugurdekar</a></dd></div>' +
+            '<div class="contact-list__row"><dt>Based in</dt><dd>Gwalior, India — IST (UTC+5:30)</dd></div>' +
+            '<div class="contact-list__row"><dt>Currently</dt><dd>B.Tech CST, MITS Gwalior, 2025–2029</dd></div>' +
+          '</dl>' +
+          '<p class="form__note" style="margin-top:22px">Prefer to check the work first? <a class="u-link" href="#/work" data-route="/work">Open the project list</a>.</p>' +
+        '</div>' +
+
+        '<form class="form" id="contactForm" novalidate data-reveal style="--d:1">' +
+          '<div class="field">' +
+            '<label for="cf-name">Name</label>' +
+            '<input id="cf-name" name="name" type="text" autocomplete="name" required aria-describedby="cf-name-err">' +
+            '<p class="field__error" id="cf-name-err" role="alert"></p>' +
+          '</div>' +
+          '<div class="field">' +
+            '<label for="cf-email">Email</label>' +
+            '<input id="cf-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="cf-email-err">' +
+            '<p class="field__error" id="cf-email-err" role="alert"></p>' +
+          '</div>' +
+          '<div class="field">' +
+            '<label for="cf-subject">Subject</label>' +
+            '<input id="cf-subject" name="subject" type="text">' +
+          '</div>' +
+          '<div class="field">' +
+            '<label for="cf-message">Message</label>' +
+            '<textarea id="cf-message" name="message" required aria-describedby="cf-message-err"></textarea>' +
+            '<p class="field__error" id="cf-message-err" role="alert"></p>' +
+          '</div>' +
+          '<div class="form__foot">' +
+            '<button class="btn btn--solid" type="submit" data-magnetic>Send message</button>' +
+            '<p class="form__status" data-form-status role="status" aria-live="polite"></p>' +
+          '</div>' +
+          '<p class="form__note">Filling this form and clicking Send will open your email app with the message pre-filled — addressed to ' + esc(CONFIG.email) + ' and ready to send in one click.</p>' +
+        '</form>' +
+      '</div>' +
+    '</article>';
+  }
+
+  function tpl404(route) {
+    return '<article class="page">' +
+      '<div class="page__head" data-reveal>' +
+        '<div><p class="eyebrow">Error 404</p><h1 class="page__title">Nothing here</h1></div>' +
+        '<p class="page__lede">There is no page at <code>' + esc(route) + '</code>. It may have moved, or the link was mistyped.</p>' +
+      '</div>' +
+      '<div class="hero__cta" data-reveal>' +
+        '<a class="btn btn--solid" href="#/" data-route="/" data-magnetic>Back to the home page <span class="btn__arrow" aria-hidden="true">→</span></a>' +
+        '<a class="btn" href="#/work" data-route="/work">See the work</a>' +
+        '<a class="btn" href="#/contact" data-route="/contact">Get in touch</a>' +
+      '</div>' +
+    '</article>';
+  }
+
+  /* ---------------------------------------------------------- hero split text */
+
+  function splitHero() {
+    const name = $('.hero__name');
+    if (!name) return;
+    let index = 0;
+
+    $$('.line', name).forEach((line) => {
+      const text = line.textContent;
+      line.textContent = '';
+      text.split('').forEach((ch) => {
+        const span = document.createElement('span');
+        span.className = 'char';
+        span.style.setProperty('--i', index++);
+        span.textContent = ch === ' ' ? ' ' : ch;
+        line.appendChild(span);
+      });
+    });
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => name.classList.add('is-in'));
+    });
+  }
+
+  /* ------------------------------------------------------- reveal observer */
+
+  let observer = null;
+  function observeReveal(scope) {
+    if (observer) observer.disconnect();
+
+    const targets = $$('[data-reveal]', scope || document);
+
+    if (reduced.matches) {
+      targets.forEach((t) => t.classList.add('is-in'));
+      return;
+    }
+
+    observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+
+    targets.forEach((t) => observer.observe(t));
+  }
+
+  /* ---------------------------------------------------------------- dialogs */
+
+  const enquiry = $('#enquiry');
+  const detail = $('#detail');
+  let lastFocus = null;
+
+  function openDialog(dlg) {
+    if (!dlg) return;
+    lastFocus = document.activeElement;
+    dlg.showModal();
+    document.body.classList.add('is-locked');
+    requestAnimationFrame(() => dlg.classList.add('show'));
+    $$('[data-open-enquiry]').forEach((b) => b.setAttribute('aria-expanded', 'true'));
+    const focusTarget = $('.panel__close', dlg);
+    if (focusTarget) focusTarget.focus({ preventScroll: true });
+  }
+
+  function closeDialog(dlg) {
+    if (!dlg || !dlg.open) return;
+    dlg.classList.remove('show');
+    const finish = () => {
+      if (dlg.open) dlg.close();
+      document.body.classList.remove('is-locked');
+      if (lastFocus && document.contains(lastFocus)) lastFocus.focus({ preventScroll: true });
+      lastFocus = null;
+    };
+    if (reduced.matches) finish();
+    else window.setTimeout(finish, 260);
+  }
+
+  $$('[data-open-enquiry]').forEach((btn) => {
+    btn.addEventListener('click', () => openDialog(enquiry));
+  });
+
+  // delegated: the hero's "Get in touch" is rendered after this block runs
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-open-enquiry]');
+    if (!trigger) return;
+    e.preventDefault();
+    openDialog(enquiry);
+  });
+
+  [enquiry, detail].forEach((dlg) => {
+    if (!dlg) return;
+
+    dlg.addEventListener('close', () => {
+      dlg.classList.remove('show');
+      document.body.classList.remove('is-locked');
+      $$('[data-open-enquiry]').forEach((b) => b.setAttribute('aria-expanded', 'false'));
+      if (lastFocus && document.contains(lastFocus)) lastFocus.focus({ preventScroll: true });
+      lastFocus = null;
+    });
+
+    dlg.addEventListener('click', (e) => {
+      if (e.target === dlg) closeDialog(dlg);
+    });
+
+    $$('[data-close]', dlg).forEach((b) => b.addEventListener('click', () => closeDialog(dlg)));
+
+    // swipe-down to dismiss the mobile bottom sheet
+    const panel = $('.panel', dlg);
+    const handle = $('.sheet-handle', dlg);
+    if (panel && handle && window.matchMedia('(max-width: 767px)').matches) {
+      let startY = 0, delta = 0, dragging = false;
+
+      handle.addEventListener('pointerdown', (e) => {
+        dragging = true;
+        startY = e.clientY;
+        panel.style.transition = 'none';
+        handle.setPointerCapture(e.pointerId);
+      });
+
+      handle.addEventListener('pointermove', (e) => {
+        if (!dragging) return;
+        delta = Math.max(0, e.clientY - startY);
+        panel.style.transform = 'translateY(' + delta + 'px)';
+      });
+
+      const end = () => {
+        if (!dragging) return;
+        dragging = false;
+        panel.style.transition = '';
+        if (delta > 90) {
+          panel.style.transform = '';
+          closeDialog(dlg);
+        } else {
+          panel.style.transform = '';
+        }
+        delta = 0;
+      };
+      handle.addEventListener('pointerup', end);
+      handle.addEventListener('pointercancel', end);
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if (enquiry && enquiry.open) closeDialog(enquiry);
+    if (detail && detail.open) closeDialog(detail);
+  });
+
+  /* --------------------------------------------------------------- clipboard */
+
+  function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise((resolve, reject) => {
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        ta.style.top = '-1000px';
+        document.body.appendChild(ta);
+        ta.select();
+        ta.setSelectionRange(0, ta.value.length);
+        const ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        ok ? resolve() : reject(new Error('copy failed'));
+      } catch (err) {
+        reject(err);
+      }
+    });
+  }
+
+  const copyBtn = $('[data-copy-email]');
+  const copyStatus = $('[data-copy-status]');
+  if (copyBtn) {
+    let timer = null;
+    copyBtn.addEventListener('click', () => {
+      copyText(CONFIG.email).then(() => {
+        copyBtn.textContent = 'Copied ✓';
+        if (copyStatus) copyStatus.textContent = CONFIG.email + ' copied to clipboard';
+        announce('Email address copied to clipboard');
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          copyBtn.textContent = 'Copy';
+          if (copyStatus) copyStatus.textContent = 'MITS Gwalior · IST (UTC+5:30)';
+        }, 1500);
+      }).catch(() => {
+        copyBtn.textContent = 'Press ⌘C';
+        if (copyStatus) copyStatus.textContent = 'Copy did not work. Select the address above manually.';
+      });
+    });
+  }
+
+
+  // ── EMAIL: every email touchpoint opens the mail app directly ──────────────
+  function openMailApp(opts) {
+    opts = opts || {};
+    var parts = 'mailto:' + CONFIG.email;
+    var qs = [];
+    if (opts.subject) qs.push('subject=' + encodeURIComponent(opts.subject));
+    if (opts.body)    qs.push('body='    + encodeURIComponent(opts.body));
+    if (qs.length) parts += '?' + qs.join('&');
+    window.location.href = parts;
+  }
+
+  // 1. All <a data-email-link> — set href, fix display text where needed
+  $$('[data-email-link]').forEach(function(el) {
+    var mailHref = 'mailto:' + CONFIG.email;
+    if (el.tagName === 'A') {
+      el.href = mailHref;
+      // panel__email is the plain-text display link — update its text
+      if (el.classList.contains('panel__email')) {
+        el.textContent = CONFIG.email;
+      }
+      // Ensure click always fires the mail app (no default suppression)
+      el.addEventListener('click', function(e) {
+        e.preventDefault();
+        openMailApp();
+      });
+    } else {
+      // <button data-email-link>
+      el.addEventListener('click', function() { openMailApp(); });
+    }
+  });
+
+  // 2. All static <a href="mailto:…"> that are NOT data-email-link
+  $$('a[href^="mailto:"]').forEach(function(el) {
+    if (el.hasAttribute('data-email-link')) return; // already handled above
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      openMailApp();
+    });
+  });
+  // ───────────────────────────────────────────────────────────────────────────
+
+
+  /* -------------------------------------------------------- project detail */
+
+  function openProject(id) {
+    const p = PROJECTS.filter((x) => x.id === id)[0];
+    const body = $('#detailBody');
+    if (!p || !body) return;
+
+    body.innerHTML =
+      '<div class="detail__media"><img src="' + esc(p.detailImage) + '" width="1440" height="900" loading="lazy" decoding="async" alt="' + esc(p.title) + ' — detail image"></div>' +
+      '<p class="panel__kicker">' + esc(p.role) + ' — ' + esc(p.tags) + '</p>' +
+      '<h2 class="panel__title" id="detailTitle">' + esc(p.title) + '</h2>' +
+      '<p class="detail__sub">' + esc(p.year) + '</p>' +
+      '<p class="detail__text">' + esc(p.detail) + '</p>' +
+      '<ul class="detail__list">' + p.bullets.map((b) => '<li>' + esc(b) + '</li>').join('') + '</ul>' +
+      (p.link ? '<div class="panel__actions"><a class="btn btn--solid" href="' + esc(p.link) + '" ' + ext + '>' + esc(p.linkLabel || 'Open project') + ' <span class="btn__arrow" aria-hidden="true">↗</span></a></div>' : '');
+
+    openDialog(detail);
+  }
+
+  /* ------------------------------------------------------- page interactions */
+
+  function bindPageEvents(scope) {
+    $$('[data-project]', scope).forEach((btn) => {
+      btn.addEventListener('click', () => openProject(btn.getAttribute('data-project')));
+    });
+
+    const form = $('#contactForm', scope);
+    if (form) bindForm(form);
+  }
+
+  /* -------------------------------------------------------------------- form */
+
+  function bindForm(form) {
+    const status = $('[data-form-status]', form);
+    const fields = {
+      name: { el: $('#cf-name', form), err: $('#cf-name-err', form), test: (v) => v.trim().length > 1, msg: 'Please enter your name.' },
+      email: { el: $('#cf-email', form), err: $('#cf-email-err', form), test: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()), msg: 'Please enter a valid email address.' },
+      message: { el: $('#cf-message', form), err: $('#cf-message-err', form), test: (v) => v.trim().length > 4, msg: 'Tell me a little about what you need.' }
+    };
+
+    function validate(key) {
+      const f = fields[key];
+      if (!f.el) return true;
+      const ok = f.test(f.el.value);
+      f.el.setAttribute('aria-invalid', ok ? 'false' : 'true');
+      if (f.err) f.err.textContent = ok ? '' : f.msg;
+      return ok;
+    }
+
+    Object.keys(fields).forEach((key) => {
+      const f = fields[key];
+      if (!f.el) return;
+      f.el.addEventListener('blur', () => { if (f.el.value) validate(key); });
+      f.el.addEventListener('input', () => {
+        if (f.el.getAttribute('aria-invalid') === 'true') validate(key);
+      });
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const results = Object.keys(fields).map(validate);
+      const ok = results.every(Boolean);
+
+      if (!ok) {
+        const firstBad = Object.keys(fields).filter((k) => fields[k].el && !fields[k].test(fields[k].el.value))[0];
+        if (firstBad) fields[firstBad].el.focus();
+        if (status) status.textContent = 'Check the highlighted fields';
+        announce('The form has errors.');
+        return;
+      }
+
+      const data = {
+        name: fields.name.el.value.trim(),
+        email: fields.email.el.value.trim(),
+        subject: ($('#cf-subject', form) || {}).value || '',
+        message: fields.message.el.value.trim()
+      };
+
+      if (CONFIG.form.endpoint) {
+        if (status) status.textContent = 'Sending…';
+        fetch(CONFIG.form.endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(data)
+        }).then((res) => {
+          if (!res.ok) throw new Error('bad response');
+          form.reset();
+          if (status) status.textContent = 'Message sent — thank you';
+          announce('Message sent.');
+        }).catch(() => {
+          if (status) status.textContent = 'Could not send. Please email directly.';
+        });
+        return;
+      }
+
+      const subject = data.subject || ('Hello from ' + data.name);
+      const body = data.message + '\n\n— ' + data.name + ' (' + data.email + ')';
+      openMailApp({ subject: subject, body: body });
+      if (status) status.textContent = 'Opening your email app…';
+      announce('Opening your email app with the message.');
+    });
+  }
+
+  /* ------------------------------------------------------------------- audio */
+
+  const soundBtn = $('#soundToggle');
+  const soundLabel = $('#soundLabel');
+  let audioCtx = null, audioGain = null, audioNodes = [], audioOn = false, pendingSound = false;
+
+  function buildAudio() {
+    const Ctx = window.AudioContext || window.webkitAudioContext;
+    if (!Ctx) return false;
+    audioCtx = new Ctx();
+
+    audioGain = audioCtx.createGain();
+    audioGain.gain.value = 0;
+
+    const filter = audioCtx.createBiquadFilter();
+    filter.type = 'lowpass';
+    filter.frequency.value = 780;
+    filter.Q.value = 0.6;
+
+    const lfo = audioCtx.createOscillator();
+    const lfoGain = audioCtx.createGain();
+    lfo.frequency.value = 0.05;
+    lfoGain.gain.value = 240;
+    lfo.connect(lfoGain).connect(filter.frequency);
+    lfo.start();
+
+    [110, 164.81, 220, 329.63].forEach((freq, i) => {
+      const osc = audioCtx.createOscillator();
+      osc.type = i % 2 === 0 ? 'triangle' : 'sine';
+      osc.frequency.value = freq;
+      osc.detune.value = (i - 1.5) * 4;
+      const g = audioCtx.createGain();
+      g.gain.value = 0.16 / (i + 1);
+      osc.connect(g).connect(filter);
+      osc.start();
+      audioNodes.push(osc);
+    });
+
+    filter.connect(audioGain).connect(audioCtx.destination);
+    audioNodes.push(lfo);
+    return true;
+  }
+
+  function setAudio(on) {
+    if (on && !audioCtx && !buildAudio()) {
+      if (soundLabel) soundLabel.textContent = 'Sound unavailable';
+      return;
+    }
+    if (!audioCtx) return;
+
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+
+    const now = audioCtx.currentTime;
+    audioGain.gain.cancelScheduledValues(now);
+    audioGain.gain.setTargetAtTime(on ? 0.05 : 0, now, 0.6);
+
+    audioOn = on;
+    soundBtn.classList.toggle('is-on', on);
+    soundBtn.setAttribute('aria-pressed', String(on));
+    soundBtn.setAttribute('aria-label', on ? 'Turn ambient sound off' : 'Turn ambient sound on');
+    if (soundLabel) soundLabel.textContent = on ? 'Sound on' : 'Sound off';
+    storage.local.set('pg-sound', on ? 'on' : 'off');
+  }
+
+  if (storage.local.get('pg-sound') === 'on') {
+    pendingSound = true;
+    soundBtn.classList.add('is-on');
+    soundBtn.setAttribute('aria-pressed', 'true');
+    if (soundLabel) soundLabel.textContent = 'Sound on';
+  }
+
+  soundBtn.addEventListener('click', () => {
+    pendingSound = false;
+    setAudio(!audioOn);
+  });
+
+  function maybeStartPending() {
+    if (!pendingSound) return;
+    pendingSound = false;
+    setAudio(true);
+    document.removeEventListener('pointerdown', maybeStartPending);
+    document.removeEventListener('keydown', maybeStartPending);
+  }
+  document.addEventListener('pointerdown', maybeStartPending, { once: true });
+  document.addEventListener('keydown', maybeStartPending, { once: true });
+
+  /* ------------------------------------------------------- global listeners */
+
+  // parallax glow
+  if (finePointer.matches && !reduced.matches) {
+    window.addEventListener('mousemove', (e) => {
+      const x = e.clientX / window.innerWidth - 0.5;
+      const y = e.clientY / window.innerHeight - 0.5;
+      root.style.setProperty('--gx', x.toFixed(3));
+      root.style.setProperty('--gy', y.toFixed(3));
+    }, { passive: true });
+  }
+
+  // route links (topbar monogram, navs, in-page buttons)
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href^="#/"]');
+    if (!link) return;
+    // let the hash change drive the router; only intercept same-route clicks
+    const target = link.getAttribute('href').replace(/^#/, '');
+    if (target === window.location.hash.replace(/^#/, '')) {
+      e.preventDefault();
+      window.scrollTo(0, 0);
+    }
+  });
+
+  // back to top
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('[data-to-top]')) return;
+    window.scrollTo({ top: 0, behavior: reduced.matches ? 'auto' : 'smooth' });
+    const main = $('#main');
+    if (main) main.focus({ preventScroll: true });
+  });
+
+  $('#footerYear').textContent = String(new Date().getFullYear());
+
+  window.addEventListener('hashchange', onHashChange);
+
+  /* -------------------------------------------------------------------- boot */
+
+  try {
+    initCursor();
+    runPreloader(function () {
+      firstPaint = false;
+      paint(parseHash());
+    });
+  } catch (err) {
+    // never leave a visitor staring at a covered screen
+    if (preloader) preloader.hidden = true;
+    try { paint('/'); } catch (inner) { /* nothing further we can do */ }
+    if (window.console) console.error('Site boot failed:', err);
+  }
+})();
+</script>
+</body>
+</html>
